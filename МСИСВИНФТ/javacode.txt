@@ -1,0 +1,36 @@
+
+public class MainClass {
+
+	public static int variable = 0;
+
+
+	public static void main(String args[])
+	{
+		MainClass mc=new MainClass();
+		mc.CreateThread();
+		mc.CreateThread();
+	}
+
+	public synchronized void Change(int a)
+	{
+		if (a % 2 == 0)variable +=2
+		else MainClass.variable -=2;   
+	}
+
+	public static volatile int valuee = 0;
+
+	synchronized protected void CreateThread()
+	{
+		valuee = new MyThread(); 
+		task.start();
+	}
+
+	public void run()
+	{ 
+		for(int i=0;i<10;i++)
+		{
+			Change(i);
+			System.out.println("V = "+MainClass.variable+"\t i = "+i+"\t Thread Name "+this.getName());
+		}
+	}
+}
